@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { path: "dogs", element: <Dogs /> },
-      { path: "dogdetail", element: <Dogdetails /> },
+      { path: "dogdetail/:id", element: <Dogdetails /> },
     ],
   },
 ])

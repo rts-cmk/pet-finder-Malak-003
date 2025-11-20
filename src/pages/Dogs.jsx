@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
+
 
 
 export default function Dogs() {
@@ -37,13 +38,17 @@ export default function Dogs() {
 
       <div className="dogs-list">
         {dogs.map((dog) => (
-          <div key={dog.id} className="dog-card">
+        <Link to={`/app/dogdetail/${dog.id}`} key={dog.id}>
+
+          <div className="dog-card">
             <img src={dog.image} alt={dog.breed} width="120" />
 
             <h3>{dog.breed}</h3>
             <p>{dog.location}</p>
             <p>{dog.short_description}</p>
           </div>
+        </Link>
+
         ))}
       </div>
       
