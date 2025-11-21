@@ -25,23 +25,23 @@ export default function DogDetail() {
   return (
     <div className="Dogdetail-page">
 
-      <img src={dog.image} />
+      <img className="Dogdetail-page__dogimg" src={dog.image} />
 
       <div className="Dogdetail-page__content">
         <h1>{dog.breed}</h1>
 
-        <div className="Dogdetail-page__location">
+        <div className="content-location">
           <img src="/pin(1).png" />
           <p>{dog.location}</p>
         </div>
 
         <div className="top-icons">
-          <div>
+          <div className="top-icons__breed">
             <img src="/alarm.png" alt="" />
             <p>{dog.breed}</p>
           </div>
 
-          <div>
+          <div className="top-icons__gender">
             <img src="/alarm2.png" alt="" />
             <p>{dog.gender}</p>
           </div>
