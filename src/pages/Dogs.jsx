@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { NavLink, Link } from "react-router-dom"
 
 
-
 export default function Dogs() {
   const [user, setUser] = useState(null)
   const [dogs, setDogs] = useState([])
@@ -12,7 +11,7 @@ export default function Dogs() {
       try {
         const respone = await fetch("/db.json") 
         const data = await respone.json()
-
+          console.log(data)
         setUser(data.user)
         setDogs(data.dogs)
       } catch (error) {
@@ -29,26 +28,25 @@ export default function Dogs() {
       {/* User info */}
       {user && (
         <div className="user-card">
-          <img src={user.image} alt="User" width="80" />
-          <p>Location: {user.location}</p>
+          <img className="user-card__userimg"  src={user.image}  />
+          <p> <img className="user-card__locpin" src="/pin2.png" />{user.location}</p>
         </div>
       )}
 
-      <h2>Available Dogs</h2>
 
       <div className="dogs-list">
         {dogs.map((dog) => (
         <Link to={`/app/dogdetail/${dog.id}`} key={dog.id}>
-
-          <div className="dog-card">
-            <img src={dog.image} alt={dog.breed} width="120" />
-
+            
+          <div  className="dog-card">
+            <img className="dog-card__img" src={dog.image} />
+          <div className="dog-card__content">
             <h3>{dog.breed}</h3>
-            <p>{dog.location}</p>
+            <p   className="dog-card__location"><img className="pin" src="/pin(1).png" />{dog.location}</p>
             <p>{dog.short_description}</p>
           </div>
-        </Link>
-
+          </div>
+          </Link>
         ))}
       </div>
       
